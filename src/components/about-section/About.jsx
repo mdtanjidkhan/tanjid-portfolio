@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 const About = () => {
   return (
-    <div className="container mx-auto px-4 md:px-8 py-16 flex flex-col items-center text-center">
+    <div className="container mx-auto px-4 md:px-8 md:py-16 flex flex-col items-center text-center">
       <motion.div initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}

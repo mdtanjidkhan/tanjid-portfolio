@@ -106,7 +106,7 @@ export default function Navbar() {
           {/*  */}
           <div className="flex-1">
             <a href="#home" className="text-2xl font-bold tracking-wider text-primary">
-              Tanjid<span className="text-secondary">.dev</span>
+              <span className="text-secondary">TA</span>
             </a>
           </div>
 
@@ -143,7 +143,7 @@ export default function Navbar() {
       {/*(Sidebar Menu) */}
       <div className="drawer-side z-50">
         <label htmlFor="portfolio-sidebar" aria-label="close sidebar" className="drawer-overlay"></label>
-        <div className="menu p-6 w-72 min-h-full bg-base-200 text-base-content flex flex-col justify-between">
+        <div className="menu p-6 w-60 min-h-full bg-base-200 text-base-content flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-center mb-8">
               <span className="text-xl font-bold text-primary">Menu</span>

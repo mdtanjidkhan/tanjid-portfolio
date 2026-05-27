@@ -1,6 +1,7 @@
 "use client"
+import Link from 'next/link';
 import React from 'react';
-import { FaTwitter } from 'react-icons/fa';
+import { FaReact, FaTwitter } from 'react-icons/fa';
 import { RxLinkedinLogo } from 'react-icons/rx';
 import { SiGithub } from 'react-icons/si';
 
@@ -21,14 +22,14 @@ const HeroSection = () => {
               bridging the gap between clean code and great user experience.
             </p>
             <div className="flex justify-center lg:justify-start items-center gap-6 mt-8 opacity-80">
-              <span className="w-12 h-[1px] bg-base-content/30"></span>
+              <span className="w-18 h-[1px] bg-base-content/30"></span>
               
               {/* GitHub */}
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors text-2xl">
+              <a href="https://github.com/mdtanjidkhan" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors text-2xl">
                 <SiGithub />
               </a>
               {/* LinkedIn */}
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors text-2xl">
+              <a href="www.linkedin.com/in/md-tanjid-khan" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors text-2xl">
                 <RxLinkedinLogo />
               </a>
               {/*  */}
@@ -37,18 +38,18 @@ const HeroSection = () => {
                  <FaTwitter />
               </a>
               
-              <span className="w-12 h-[1px] bg-base-content/30"></span>
+              <span className="w-18 h-[1px] bg-base-content/30"></span>
             </div>
 
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mt-10">
+            <div className="flex justify-center lg:justify-start items-center gap-4 mt-10">
               <button className="btn btn-primary shadow-lg shadow-primary/20 px-8 rounded-xl gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                 Resume
               </button>
-              <button className="btn btn-outline btn-secondary px-8 rounded-xl gap-2">
+               <Link href='#projects'><button className="btn btn-outline btn-secondary px-8 rounded-xl gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 View Projects
-              </button>
+              </button></Link>
             </div>
           </div>
 
@@ -58,13 +59,14 @@ const HeroSection = () => {
               <div className="w-full h-full rounded-full bg-base-100 p-2 overflow-hidden">
                 
                 <img 
-                  src="https://via.placeholder.com/400" 
+                  src="https://i.ibb.co.com/sxHqJYf/Whats-App-Image-2026-05-26-at-8-53-31-AM.jpg" 
                   alt="Tanjid Hasan" 
                   className="w-full h-full object-cover rounded-full bg-base-300"
                 />
               </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-secondary blur-xl opacity-30 -z-10"></div>
             </div>
+              
           </div>
 
         </div>
