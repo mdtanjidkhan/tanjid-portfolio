@@ -201,8 +201,6 @@ export default function Contacts() {
       </div>
         {toast.show && (
   <div className="toast toast-end toast-bottom p-4 z-50 transition-all duration-300">
-    
-    {/* 🟢 SUCCESS হলে এই বক্সটি শো করবে */}
     {toast.type === 'success' && (
       <div className="alert alert-success text-white shadow-xl rounded-2xl flex items-center gap-3 font-semibold text-sm">
         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -211,8 +209,6 @@ export default function Contacts() {
         <span>{toast.message}</span>
       </div>
     )}
-
-    {/* 🔴 ERROR হলে এই বক্সটি শো করবে */}
     {toast.type === 'error' && (
       <div className="alert alert-error text-white shadow-xl rounded-2xl flex items-center gap-3 font-semibold text-sm">
         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
