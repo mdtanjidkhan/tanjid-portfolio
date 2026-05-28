@@ -1,19 +1,13 @@
 "use client";
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast, { Toaster } from "react-hot-toast"; 
 
 export default function Contacts() {
     const {register,handleSubmit,reset, formState:{errors,isSubmitting}} = useForm();
     // 
-    const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+    // const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
      const onSubmit = async (data) =>{
-
-      const showToast = (message, type) => {
-    setToast({ show: true, message, type });
-    setTimeout(() => {
-      setToast({ show: false, message: '', type: 'success' });
-    }, 4000);
-     };
         console.log(data,"hello")
        try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -27,19 +21,20 @@ export default function Contacts() {
           name: data.name,
           email: data.email,
           message: data.message,
+          phone: data.phone,
         }),
       });
 
       const result = await response.json();
-      if (result.success) {
-        showToast("Thank you! Your message has been sent successfully.");
+      if (result) {
+        toast.success("Thank you! Your message has been sent successfully.")
         reset(); 
       } else {
-        showToast("Oops! Something went wrong. Please try again later.");
+        toast.error("Oops! Something went wrong. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      showToast("Network error! Please check your internet connection and try again.");
+      ("Network error! Please check your internet connection and try again.");
     }
 
    
@@ -164,6 +159,24 @@ export default function Contacts() {
               />
               {errors.email && <span className="text-error text-xs mt-1">{errors.email.message}</span>}
             </div>
+            {/*  */}
+            <div className="form-control w-full">
+              <label className="label"><span className="label-text font-semibold">Your Phone Number</span></label>
+              <input 
+                type="tel" 
+                placeholder="Enter your phone number" 
+                className={`input input-bordered w-full bg-base-100 rounded-xl focus:outline-primary ${errors.phone ? 'border-error' : ''}`}
+                 {...register("phone", 
+                  {
+                    pattern: {
+        value: /^[0-9-+]{11,14}$/,
+        message: "Please enter a valid phone number"
+      }
+                     })}
+              
+              />
+              {errors.phone && <span className="text-error text-xs mt-1">{errors.phone.message}</span>}
+            </div>
 
             {/*  */}
             <div className="form-control w-full">
@@ -197,29 +210,8 @@ export default function Contacts() {
             </button>
           </form>
         </div>
+      </div>
+      </div>
 
-      </div>
-        {toast.show && (
-  <div className="toast toast-end toast-bottom p-4 z-50 transition-all duration-300">
-    {toast.type === 'success' && (
-      <div className="alert alert-success text-white shadow-xl rounded-2xl flex items-center gap-3 font-semibold text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span>{toast.message}</span>
-      </div>
-    )}
-    {toast.type === 'error' && (
-      <div className="alert alert-error text-white shadow-xl rounded-2xl flex items-center gap-3 font-semibold text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-        <span>{toast.message}</span>
-      </div>
-    )}
-
-  </div>
-)}
-    </div>
   );
 }

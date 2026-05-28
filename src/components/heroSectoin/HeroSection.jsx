@@ -4,6 +4,7 @@ import React from 'react';
 import { FaReact, FaTwitter } from 'react-icons/fa';
 import { RxLinkedinLogo } from 'react-icons/rx';
 import { SiGithub } from 'react-icons/si';
+import { Typewriter } from 'react-simple-typewriter';
 
 const HeroSection = () => {
     return (
@@ -14,9 +15,21 @@ const HeroSection = () => {
             <h1 className="text-2xl sm:text-xl md:text-2xl font-extrabold tracking-tight leading-tight">
               Hello 👋 
             </h1>
-             <h2 className="text-2xl sm:text-xl md:text-2xl font-extrabold tracking-tight leading-tight mt-2"> I'm <span className="text-primary">Tanjid Hasan</span>,</h2>
-              <p className="text-2xl sm:text-xl md:text-2xl font-extrabold tracking-tight leading-tight"> <span className="text-secondary">Full-Stack Web Developer_</span></p>
-            
+             <h2 className="text-2xl sm:text-xl md:text-2xl font-extrabold tracking-tight leading-tight mt-2"> I'm <span className="text-primary">Tanjid Khan</span>,</h2>
+              <p className="text-2xl font-bold md:text-3xl md:font-semibold text-secondary mt-4 min-h-[40px]">
+        {" "}
+        <span className="border-r-2 border-primary pr-1 font-bold text-primary">
+          <Typewriter
+            words={["Full-Stack Web Developer_", "MERN Stack Developer_"]}
+            loop={0} 
+            cursor
+            cursorStyle="|"
+            typeSpeed={80}    
+            deleteSpeed={80}  
+            delaySpeed={1500} 
+          />
+        </span>
+      </p>
             <p className="mt-3 text-base sm:text-lg md:text-xl text-base-content/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               I build responsive, secure, and production-ready full-stack applications, 
               bridging the gap between clean code and great user experience.
