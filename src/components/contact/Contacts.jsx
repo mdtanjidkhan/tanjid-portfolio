@@ -36,7 +36,6 @@ export default function Contacts() {
       console.error("Error submitting form:", error);
       ("Network error! Please check your internet connection and try again.");
     }
-
    
     };
 
