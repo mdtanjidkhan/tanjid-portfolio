@@ -3,7 +3,7 @@ import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme("dark")
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState("home") 
   useEffect(() => {

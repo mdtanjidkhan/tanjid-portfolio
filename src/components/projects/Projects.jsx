@@ -46,8 +46,8 @@ export default function Projects() {
       </div>
 
       {/* */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {projectList.map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {projectList.slice(0,2).map((project) => (
           <div
             key={project.id}
             className="flex flex-col justify-between bg-base-200/40 backdrop-blur-md border border-base-content/10 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 group"

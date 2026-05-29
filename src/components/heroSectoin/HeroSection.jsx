@@ -42,7 +42,7 @@ const HeroSection = () => {
                 <SiGithub />
               </a>
               {/* LinkedIn */}
-              <a href="www.linkedin.com/in/md-tanjid-khan" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors text-2xl">
+              <a href="https://www.linkedin.com/in/md-tanjid-khan" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors text-2xl">
                 <RxLinkedinLogo />
               </a>
               {/*  */}
