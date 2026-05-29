@@ -36,6 +36,22 @@ export default function Navbar() {
 
 
   useEffect(() => {
+   
+    // First, I will check whether the user has previously visited, changed the theme, and saved it.
+     const savedTheme = localStorage.getItem("theme");
+     if (savedTheme) {
+      // If a theme (dark or light) has already been saved, that is what will be displayed.
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else {
+      // And if the user is visiting for the very first time (i.e., no saved theme exists),
+       // then we will force-set 'dark' mode as the default!
+      setTheme("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    }
+
+
     const sections = ["home", "about", "skills", "projects", "contact"]
     
     const observerOptions = {
@@ -63,6 +79,14 @@ export default function Navbar() {
   }, [])
 
   if (!mounted) return null
+
+  // Toggle theme 
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme); 
+  };
 
 
   const renderNavLinks = (isSidebar = false) => {
@@ -121,7 +145,7 @@ export default function Navbar() {
           <div className="flex-none gap-2">
             {/* Theme toggle*/}
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={toggleTheme}
               className="btn btn-ghost btn-circle hidden sm:inline-flex"
               aria-label="Toggle Theme"
             >
