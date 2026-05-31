@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
         <div className="text-center md:text-right border-t md:border-t-0 border-base-content/5 pt-4 md:pt-0 w-full md:w-auto">
           <p className="text-xs text-base-content/50 font-medium">
-            © {currentYear} Md. Tanjid Hasan. All rights reserved.
+            © {currentYear} Md. Tanjid Khan. All rights reserved.
           </p>
         </div>
 
