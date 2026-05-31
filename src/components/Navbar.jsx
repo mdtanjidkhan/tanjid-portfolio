@@ -146,7 +146,7 @@ export default function Navbar() {
             {/* Theme toggle*/}
             <button
               onClick={toggleTheme}
-              className="btn btn-ghost btn-circle hidden sm:inline-flex"
+              className="btn btn-ghost btn-circle  sm:inline-flex"
               aria-label="Toggle Theme"
             >
               {theme === "dark" ? (
