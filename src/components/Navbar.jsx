@@ -165,12 +165,19 @@ export default function Navbar() {
       </div>
 
       {/*(Sidebar Menu) */}
-      <div className="drawer-side z-50">
+      <div className="drawer-side z-50 md:hidden">
         <label htmlFor="portfolio-sidebar" aria-label="close sidebar" className="drawer-overlay"></label>
         <div className="menu p-6 w-60 min-h-full bg-base-200 text-base-content flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-center mb-8">
-              <span className="text-xl font-bold text-primary">Menu</span>
+              {/* <span className="text-xl font-bold text-primary">Menu</span> */}
+              <a href="/tanjid-khan-is-p.pdf"  target="_blank"
+               rel="noopener noreferrer" >
+               <button className="flex items-center justify-center gap-2 rounded-xl border border-indigo-500/40 bg-indigo-500/10 px-5 py-3 text-indigo-400 transition-all duration-300 hover:bg-indigo-500 font-bold hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+              Resume
+            </button>
+             </a>
               <label htmlFor="portfolio-sidebar" className="btn btn-sm btn-circle btn-ghost">✕</label>
             </div>
             
