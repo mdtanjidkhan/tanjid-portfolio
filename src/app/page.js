@@ -1,11 +1,12 @@
 import About from "@/components/about-section/About";
 import Contacts from "@/components/contact/Contacts";
 import HeroSection from "@/components/heroSectoin/HeroSection";
-import Projects from "@/components/projects/Projects";
+// import Projects from "@/components/projects/Projects";
 import SkeletonCard from "@/components/SkeletonCard";
 import Skills from "@/components/skillsSection/Skills";
 import Image from "next/image";
 import { Suspense } from "react";
+import Projects from "./projects/page";
 
 export default function Home() {
   return (
