@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -89,40 +90,22 @@ export default function Projects() {
     ? projects
     : projects.slice(currentIndex, currentIndex + visibleCount);
 
-  // Framer Motion Variants for Smooth Rise Up Animation
-  const containerVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.12,
-      },
+  const textLeftToRightProps = {
+    initial: { opacity: 0, x: -60 },
+    whileInView: { opacity: 1, x: 0 },
+    viewport: { once: true, margin: "-50px" },
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
     },
   };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 35, scale: 0.96 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const imageRiseVariants = {
-    hidden: { opacity: 0, y: 20, scale: 1.05 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+  const cardFloatUpProps = {
+    initial: { opacity: 0, y: 60, scale: 0.96 },
+    whileInView: { opacity: 1, y: 0, scale: 1 },
+    viewport: { once: true, margin: "-50px" },
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
     },
   };
 
@@ -130,90 +113,106 @@ export default function Projects() {
     enter: (dir) => ({
       x: dir === "right" ? 50 : -50,
       opacity: 0,
+      scale: 0.98,
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        x: { type: "spring", stiffness: 260, damping: 28 },
-        opacity: { duration: 0.25 },
+        x: { type: "spring", stiffness: 220, damping: 26 },
+        opacity: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+        scale: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
       },
     },
     exit: (dir) => ({
       x: dir === "right" ? -50 : 50,
       opacity: 0,
+      scale: 0.98,
       transition: {
-        x: { type: "spring", stiffness: 260, damping: 28 },
+        x: { type: "spring", stiffness: 220, damping: 26 },
         opacity: { duration: 0.2 },
+        scale: { duration: 0.2 },
       },
     }),
   };
 
-  return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, margin: "-80px" }}
-      variants={containerVariants}
-      className="container mx-auto px-4 md:px-8 py-20 relative"
-    >
-      {/* Section Heading */}
-      <motion.div variants={cardVariants} className="mb-14 text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-          My Recent <span className="text-primary">Projects</span>
-        </h2>
+  const buttonTapProps = {
+    whileHover: { scale: 1.03, y: -1 },
+    whileTap: { scale: 0.97, y: 0 },
+    transition: { type: "spring", stiffness: 400, damping: 20 },
+  };
 
-        <p className="text-base-content/70 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-normal">
+  return (
+    <section className="container mx-auto px-4 md:px-8 py-20 relative">
+      {/* Header Section: Left to Right Animation */}
+      <div className="mb-14 text-center overflow-hidden">
+        <motion.h2 
+          {...textLeftToRightProps} 
+          className="text-3xl md:text-5xl font-extrabold tracking-tight"
+        >
+          My Recent <span className="text-primary">Projects</span>
+        </motion.h2>
+
+        <motion.p 
+          {...textLeftToRightProps}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }} // হালকা Delay দিয়ে ডানে স্লাইড হবে
+          className="text-base-content/70 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-normal"
+        >
           A collection of full-stack web applications built with modern
           technologies, focusing on performance, user experience, and scalable
           architecture.
-        </p>
+        </motion.p>
 
-        <div className="w-20 h-1.5 bg-gradient-to-r from-primary/80 to-primary mx-auto mt-4 rounded-full shadow-sm" />
-      </motion.div>
+        <motion.div 
+          {...textLeftToRightProps}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="w-20 h-1.5 bg-gradient-to-r from-primary/80 to-primary mx-auto mt-4 rounded-full shadow-sm" 
+        />
+      </div>
 
       {/* Projects Container */}
       <div className="max-w-7xl mx-auto min-h-[540px] flex flex-col justify-between">
-        {/* Mobile: 1 Column Vertical List */}
+        {/* Mobile View */}
         {isMobile ? (
           <div className="grid grid-cols-1 gap-8">
             {visibleProjects.map((project) => (
               <motion.div
                 key={project.id}
-                variants={cardVariants}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-2xl"
+                {...cardFloatUpProps}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-md transition-colors duration-300 hover:border-primary/40"
               >
-                {/* Image Area with Rise Up Effect */}
+                {/* Image Area */}
                 <div className="relative h-56 w-full overflow-hidden bg-base-300">
-                  <motion.div
-                    variants={imageRiseVariants}
-                    className="relative w-full h-full"
-                  >
+                  <div className="relative w-full h-full">
                     <Image
                       src={project.coverImage}
                       alt={project.title}
                       fill
                       sizes="100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      className="object-cover"
                     />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60" />
 
                   <span className="absolute top-4 right-4 badge badge-secondary font-semibold shadow-md px-3 py-1 text-xs">
                     {project.status}
                   </span>
                 </div>
 
-                {/* Content Area */}
+                {/* Content Area with Left to Right Animation for Titles */}
                 <div className="p-6 flex flex-col flex-grow justify-between">
                   <div>
                     <span className="badge badge-outline badge-primary text-xs font-medium mb-3 px-2.5 py-1">
                       {project.category}
                     </span>
 
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-200">
+                    <motion.h3 
+                      {...textLeftToRightProps}
+                      className="text-xl font-bold mb-2"
+                    >
                       {project.title}
-                    </h3>
+                    </motion.h3>
 
                     <p className="text-base-content/70 text-sm leading-relaxed line-clamp-3 mb-5">
                       {project.shortDescription}
@@ -231,12 +230,15 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* Buttons with Icons */}
+                  {/* Buttons */}
                   <div className="flex items-center gap-2 pt-2 border-t border-base-content/5">
                     <Link href={`/projects/${project.slug}`} className="flex-1">
-                      <button className="btn btn-primary btn-sm rounded-xl w-full text-xs font-semibold shadow-sm flex items-center justify-center gap-1.5">
+                      <motion.button 
+                        {...buttonTapProps}
+                        className="btn btn-primary btn-sm rounded-xl w-full text-xs font-semibold shadow-sm flex items-center justify-center gap-1.5"
+                      >
                         <EyeIcon /> Details
-                      </button>
+                      </motion.button>
                     </Link>
 
                     <a
@@ -245,9 +247,12 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <button className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold flex items-center justify-center gap-1.5">
+                      <motion.button 
+                        {...buttonTapProps}
+                        className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold flex items-center justify-center gap-1.5"
+                      >
                         <ExternalLinkIcon /> Live
-                      </button>
+                      </motion.button>
                     </a>
 
                     <a
@@ -256,9 +261,12 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <button className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold flex items-center justify-center gap-1.5">
+                      <motion.button 
+                        {...buttonTapProps}
+                        className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold flex items-center justify-center gap-1.5"
+                      >
                         <GithubIcon /> Code
-                      </button>
+                      </motion.button>
                     </a>
                   </div>
                 </div>
@@ -266,115 +274,132 @@ export default function Projects() {
             ))}
           </div>
         ) : (
-          /* Desktop/Tablet Slider */
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="grid grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {visibleProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={cardVariants}
-                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
-                >
-                  {/* Image Container */}
-                  <div className="relative h-56 w-full overflow-hidden bg-base-300">
-                    <motion.div
-                      variants={imageRiseVariants}
-                      className="relative w-full h-full"
-                    >
-                      <Image
-                        src={project.coverImage}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                      />
-                    </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+          /* Desktop/Tablet Grid View */
+          <motion.div {...cardFloatUpProps}>
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="grid grid-cols-2 lg:grid-cols-3 gap-8"
+              >
+                {visibleProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    whileHover={{ 
+                      y: -8, 
+                      transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } 
+                    }}
+                    className="group relative flex flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
+                  >
+                    {/* Image Container */}
+                    <div className="relative h-56 w-full overflow-hidden bg-base-300">
+                      <motion.div
+                        className="relative w-full h-full"
+                        whileHover={{ scale: 1.06 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        <Image
+                          src={project.coverImage}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 33vw"
+                          className="object-cover"
+                        />
+                      </motion.div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none" />
 
-                    <span className="absolute top-4 right-4 badge badge-secondary font-semibold shadow-md px-3 py-1 text-xs">
-                      {project.status}
-                    </span>
-                  </div>
-
-                  {/* Content Area */}
-                  <div className="p-6 flex flex-col flex-grow justify-between">
-                    <div>
-                      <span className="badge badge-outline badge-primary text-xs font-medium mb-3 px-2.5 py-1">
-                        {project.category}
+                      <span className="absolute top-4 right-4 badge badge-secondary font-semibold shadow-md px-3 py-1 text-xs">
+                        {project.status}
                       </span>
+                    </div>
 
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-1">
-                        {project.title}
-                      </h3>
+                    {/* Content Area */}
+                    <div className="p-6 flex flex-col flex-grow justify-between">
+                      <div>
+                        <span className="badge badge-outline badge-primary text-xs font-medium mb-3 px-2.5 py-1">
+                          {project.category}
+                        </span>
 
-                      <p className="text-base-content/70 text-sm leading-relaxed line-clamp-3 mb-5">
-                        {project.shortDescription}
-                      </p>
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-1">
+                          {project.title}
+                        </h3>
 
-                      <div className="flex flex-wrap gap-1.5 mb-6">
-                        {project.technologies.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="badge badge-neutral text-[11px] py-2 px-2.5 font-medium transition-transform duration-200 hover:scale-105"
+                        <p className="text-base-content/70 text-sm leading-relaxed line-clamp-3 mb-5">
+                          {project.shortDescription}
+                        </p>
+
+                        <div className="flex flex-wrap gap-1.5 mb-6">
+                          {project.technologies.slice(0, 4).map((tech) => (
+                            <motion.span
+                              key={tech}
+                              whileHover={{ scale: 1.05 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                              className="badge badge-neutral text-[11px] py-2 px-2.5 font-medium cursor-default"
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex items-center gap-2 pt-2 border-t border-base-content/5">
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          className="flex-1"
+                        >
+                          <motion.button 
+                            {...buttonTapProps}
+                            className="btn btn-primary btn-sm rounded-xl w-full text-xs font-semibold shadow-sm hover:shadow-primary/20 flex items-center justify-center gap-1.5"
                           >
-                            {tech}
-                          </span>
-                        ))}
+                            <EyeIcon /> Details
+                          </motion.button>
+                        </Link>
+
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
+                        >
+                          <motion.button 
+                            {...buttonTapProps}
+                            className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold hover:bg-primary hover:border-primary hover:text-primary-content flex items-center justify-center gap-1.5"
+                          >
+                            <ExternalLinkIcon /> Live
+                          </motion.button>
+                        </a>
+
+                        <a
+                          href={project.client}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
+                        >
+                          <motion.button 
+                            {...buttonTapProps}
+                            className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold hover:bg-base-content hover:text-base-100 flex items-center justify-center gap-1.5"
+                          >
+                            <GithubIcon /> Code
+                          </motion.button>
+                        </a>
                       </div>
                     </div>
-
-                    {/* Action Buttons with Icons */}
-                    <div className="flex items-center gap-2 pt-2 border-t border-base-content/5">
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className="flex-1"
-                      >
-                        <button className="btn btn-primary btn-sm rounded-xl w-full text-xs font-semibold shadow-sm transition-all duration-200 hover:shadow-md hover:shadow-primary/20 hover:scale-[1.02] flex items-center justify-center gap-1.5">
-                          <EyeIcon /> Details
-                        </button>
-                      </Link>
-
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
-                        <button className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold transition-all duration-200 hover:bg-primary hover:border-primary hover:text-primary-content hover:scale-[1.02] flex items-center justify-center gap-1.5">
-                          <ExternalLinkIcon /> Live
-                        </button>
-                      </a>
-
-                      <a
-                        href={project.client}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
-                        <button className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold transition-all duration-200 hover:bg-base-content hover:text-base-100 hover:scale-[1.02] flex items-center justify-center gap-1.5">
-                          <GithubIcon /> Code
-                        </button>
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
         )}
 
-        {/* Navigation Controls */}
+        {/* Navigation Controls with Left to Right Animation */}
         {!isMobile && (
           <motion.div
-            variants={cardVariants}
+            {...textLeftToRightProps}
             className="mt-12 flex items-center justify-between gap-6 px-2 border-t border-base-content/10 pt-6"
           >
             {/* Page Counter */}
@@ -385,48 +410,66 @@ export default function Projects() {
               / {String(projects.length).padStart(2, "0")}
             </div>
 
-            {/* Dot Indicators */}
+            {/* Dynamic Active Indicator Dots */}
             <div className="flex items-center gap-1.5 overflow-x-auto max-w-[200px] sm:max-w-none py-1">
-              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setDirection(index > currentIndex ? "right" : "left");
-                    setCurrentIndex(index);
-                  }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-8 bg-primary"
-                      : "w-2 bg-base-content/20 hover:bg-base-content/40"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+              {Array.from({ length: maxIndex + 1 }).map((_, index) => {
+                const isActive = index === currentIndex;
+                return (
+                  <motion.button
+                    key={index}
+                    onClick={() => {
+                      setDirection(index > currentIndex ? "right" : "left");
+                      setCurrentIndex(index);
+                    }}
+                    layout
+                    initial={false}
+                    animate={{
+                      width: isActive ? 32 : 8,
+                      backgroundColor: isActive 
+                        ? "hsl(var(--p))" 
+                        : "hsl(var(--bc) / 0.2)"
+                    }}
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 350,
+                      damping: 25,
+                    }}
+                    className="h-2 rounded-full cursor-pointer focus:outline-none"
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                );
+              })}
             </div>
 
             {/* Arrows */}
             <div className="flex items-center gap-3">
-              <button
+              <motion.button
+                {...buttonTapProps}
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
                 aria-label="Previous Project"
-                className="btn btn-circle btn-outline btn-sm hover:btn-primary disabled:opacity-30 transition-all duration-200"
+                className="btn btn-circle btn-outline btn-sm hover:btn-primary disabled:opacity-30"
               >
                 <ArrowLeftIcon />
-              </button>
+              </motion.button>
 
-              <button
+              <motion.button
+                {...buttonTapProps}
                 onClick={handleNext}
                 disabled={currentIndex >= maxIndex}
                 aria-label="Next Project"
-                className="btn btn-circle btn-outline btn-sm hover:btn-primary disabled:opacity-30 transition-all duration-200"
+                className="btn btn-circle btn-outline btn-sm hover:btn-primary disabled:opacity-30"
               >
                 <ArrowRightIcon />
-              </button>
+              </motion.button>
             </div>
           </motion.div>
         )}
       </div>
-    </motion.section>
+    </section>
   );
 }
+
+

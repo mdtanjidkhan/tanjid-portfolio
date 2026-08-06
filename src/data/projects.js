@@ -60,9 +60,9 @@ export const projects = [
       "Team Collaboration",
       "Multiple AI Models"
     ],
-    "live": "https://devpilot-ai.vercel.app",
-    "client": "https://github.com/yourusername/devpilot-ai",
-    "server": "https://github.com/yourusername/devpilot-ai-server"
+    "live": "https://devpilot-ai-eta.vercel.app/",
+    "client": "https://github.com/mdtanjidkhan/devpilot-ai",
+    "server": "https://github.com/mdtanjidkhan/devpilot-ai-server"
   },
   {
     "id": 2,
@@ -118,61 +118,12 @@ export const projects = [
       "Notifications",
       "Interview Scheduling"
     ],
-    "live": "https://github.com/yourusername/devpilot-ai",
-    "client": "https://github.com/yourusername/devpilot-ai",
-    "server": ""
+    "live": "https://startupforge-client-omega.vercel.app",
+    "client": "https://github.com/mdtanjidkhan/startupforge",
+    "server": "https://github.com/mdtanjidkhan/startupforge_server"
   },
   {
     "id": 3,
-    "slug": "online-book-borrowing",
-    "title": "Online Book Borrowing Platform",
-    "shortDescription": "Modern digital library platform for discovering and borrowing books online.",
-    "description": "A responsive book borrowing platform where users can browse books, search by title, filter by category, and manage personal profiles with secure authentication.",
-    "coverImage": "https://i.ibb.co.com/Kz6XSNv0/Screenshot-2026-07-26-203012.png",
-    "gallery": [
-      "/projects/books/1.png",
-      "https://i.ibb.co.com/TqtdTqvS/Screenshot-2026-07-04-194157.png",
-      "/projects/books/3.png"
-    ],
-    "category": "Library Management",
-    "status": "Completed",
-    "duration": "2 Weeks",
-    "team": "Solo Project",
-    "role": "Frontend & Backend Developer",
-    "technologies": [
-      "Next.js",
-      "Tailwind CSS",
-      "HeroUI",
-      "Better Auth",
-      "MongoDB"
-    ],
-    "features": [
-      "Book Search",
-      "Category Filter",
-      "Authentication",
-      "Book Details",
-      "Responsive UI",
-      "Profile Management"
-    ],
-    "challenges": [
-      "Book filtering",
-      "Authentication flow"
-    ],
-    "solutions": [
-      "Implemented dynamic filtering",
-      "Protected private routes"
-    ],
-    "futureImprovements": [
-      "Borrow History",
-      "Wishlist",
-      "Reading Progress"
-    ],
-    "live": "",
-    "client": "",
-    "server": ""
-  },
-  {
-    "id": 4,
     "slug": "ideavault",
     "title": "IdeaVault",
     "shortDescription": "Startup idea sharing platform where users discover, discuss, and validate innovative ideas.",
@@ -220,8 +171,8 @@ export const projects = [
       "AI Idea Evaluation",
       "Real-time Collaboration"
     ],
-    "live": "",
-    "client": "",
-    "server": ""
+    "live": "https://n-ten-roan.vercel.app/",
+    "client": "https://github.com/mdtanjidkhan/ideavault-client",
+    "server": "https://github.com/mdtanjidkhan/Ideavault-server-pro"
   }
 ]
