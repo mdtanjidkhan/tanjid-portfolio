@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "tanjid-Khan | Portfolio",
-  description: "Full-Stack Web Developer Portfolio",
-   icons: {
+  title: "Md. Tanjid Khan | Full-Stack Web Developer",
+  description:
+    "Md. Tanjid Khan is a Full-Stack Web Developer specializing in React, Next.js, Node.js, Express.js, and MongoDB.",
+  icons: {
     icon: "/favicon.png",
   },
 };
-
 
 export default function RootLayout({ children }) {
   return (

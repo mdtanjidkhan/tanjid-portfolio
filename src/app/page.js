@@ -1,10 +1,7 @@
 import About from "@/components/about-section/About";
 import Contacts from "@/components/contact/Contacts";
-import HeroSection from "@/components/heroSectoin/HeroSection";
-// import Projects from "@/components/projects/Projects";
-import SkeletonCard from "@/components/SkeletonCard";
+import HeroSection from "@/components/heroSection/HeroSection";
 import Skills from "@/components/skillsSection/Skills";
-import { Suspense } from "react";
 import Projects from "./projects/page";
 
 export default function Home() {

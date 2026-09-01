@@ -1,73 +1,72 @@
+# Md. Tanjid Khan
 
-Hi 👋, I'm Md Tanjid Khan
-A Passionate Full-Stack Web Developer from Bangladesh 🇧🇩
-I love building modern, responsive, and user-friendly web applications using the latest web technologies. I enjoy turning ideas into real-world projects with clean UI, smooth user experience, and scalable code.
+### Full-Stack Web Developer
 
-🚀 Tech Stack
-Frontend
+I’m a passionate Full-Stack Web Developer focused on building **modern, responsive, secure, and scalable web applications** with JavaScript, React, Next.js, Node.js, and MongoDB.
 
+### 🌐 Portfolio
 
-⚛️ React.js
+**Live:** https://tanjid-portfolio.netlify.app
 
-▲ Next.js
-🎨 Tailwind CSS
-🌼 DaisyUI
-🪝 React Hooks
-🔔 React Hot Toast
+**LinkedIn:** https://www.linkedin.com/in/md-tanjid-khan
+**GitHub:** https://github.com/mdtanjidkhan
+**Email:** [tanjidkhan.dev@gmail.com](mailto:tanjidkhan.dev@gmail.com)
 
-Tools & Others
-🛠️ Git & GitHub
-💻 VS Code
-🌐 Responsive Design
-⚡ Modern UI/UX
-✨ Features
+---
 
-📱 Fully Responsive Design
+## 🛠️ Tech Stack
 
-🌙 Dark/Light Mode
+**Frontend**
+JavaScript • React.js • Next.js • HTML5 • CSS3 • Tailwind CSS
 
-⚡ Fast Performance
+**Backend**
+Node.js • Express.js • MongoDB • Mongoose • REST API • JWT • Better Auth
 
-🎯 Clean & Modern UI
+**Tools & Platforms**
+Git • GitHub • Postman • Vercel • Netlify • VS Code
 
-🔔 Toast Notifications
+---
 
-🧩 Reusable Components
+## 🚀 Featured Projects
 
-🚀 Smooth Navigation
+### DevPilot AI
 
-📂 Project Setup
-Clone the project:
-git clone https://github.com/mdtanjidkhan/tanjid-portfolio.git
-Go to the project directory:
-cd your-repo-name
-Install dependencies:
-npm install
-Run the development server:
-npm run dev
+AI-powered software planning platform that helps developers generate project plans, folder structures, APIs, database schemas, and documentation.
 
-🛠️ Built With
-Technology UsageNext.js Framework
-React.jsUI 
-LibraryTailwind CSSStylingDaisyUIUI
- ComponentsReact Hot ToastNotifications
+**Tech:** Next.js • Node.js • Express.js • MongoDB • Gemini AI
 
-📸 Preview
-Coming Soon...
-You can add your project screenshot or live demo here.
+🔗 Live Demo • GitHub
 
-📬 Contact Me
+### StartupForge
 
-📧 Email: tanjidkhan.dev@gmail.com
+A startup team-building platform where founders can create startups, find collaborators, manage applications, and work through role-based dashboards.
 
-🌐 Portfolio: 
+**Tech:** Next.js • Node.js • MongoDB • Better Auth • Stripe
 
-💼 LinkedIn: 
+🔗 Live Demo • GitHub
 
-🐙 GitHub: 
+### IdeaVault
 
-⭐ Support
-If you like this project, please give it a ⭐ on GitHub!
+A startup idea-sharing platform for discovering, submitting, and managing innovative business ideas.
 
-📄 License
-This project is open source and available under the MIT License.
+**Tech:** React • Node.js • Express.js • MongoDB • JWT
+
+🔗 Live Demo • GitHub
+
+---
+
+## ✨ What I Build
+
+Responsive Web Applications • REST APIs • Authentication & Authorization • Role-Based Access Control • AI-Powered Features • Payment Integration • Database-Driven Applications
+
+---
+
+### 📄 Resume
+
+**View Resume:** https://tanjid-portfolio.netlify.app/resume.pdf
+
+---
+
+### 🤝 Let's Connect
+
+Open to **Junior / Entry-Level Full-Stack or Frontend Web Development opportunities**.

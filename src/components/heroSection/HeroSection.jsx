@@ -14,7 +14,7 @@ const HeroSection = () => {
     <div className="w-11/12 mx-auto px-4 md:px-8 mt-8">
       <div className=" flex flex-col md:flex-row items-center justify-between gap-12">
 
-        <div className="ml-4">
+        <div className="ml-">
           <h1 className="text-2xl sm:text-xl md:text-2xl font-extrabold tracking-tight leading-tight">
             Hello 👋
           </h1>
@@ -49,12 +49,8 @@ const HeroSection = () => {
               <RxLinkedinLogo />
             </a>
             {/*  */}
-            <a href=""
-              className='hover:text-primary transition-colors text-2xl'>
-              <FaTwitter />
-            </a>
               <a
-     href="https://mail.google.com/mail/?view=cm&fs=1&to=mdtanjidkhan152@gmail.com&su=Portfolio%20Inquiry"
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=tanjidkhan.dev@gmail.com"
      target="_blank"
      rel="noopener noreferrer"
      className="hover:text-primary transition-colors text-2xl"
@@ -66,7 +62,7 @@ const HeroSection = () => {
           </div>
 
           <div className="flex justify-center lg:justify-start items-center gap-4 mt-10">
-             <a href="/tanjid-khan-is-p (2).pdf"  target="_blank"
+             <a href="/resume.pdf.pdf"  target="_blank"
                rel="noopener noreferrer" >
                <button className="btn btn-primary shadow-lg shadow-primary/20 px-8 rounded-xl gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
@@ -80,34 +76,10 @@ const HeroSection = () => {
           </div>
         </div>
 
-{/* 
-        <div className=" flex justify-center order-1 lg:order-2">
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full p-2 bg-gradient-to-tr from-primary to-secondary shadow-2xl shadow-primary/30 animate-pulse-slow">
-            <div className="w-full h-full rounded-full bg-base-100 p-2 overflow-hidden">
 
-              <img
-                src="https://i.ibb.co.com/sxHqJYf/Whats-App-Image-2026-05-26-at-8-53-31-AM.jpg"
-                alt="Tanjid Hasan"
-                className="w-full h-full object-cover rounded-full bg-base-300"
-              />
-            </div>
-            <div className="absolute -top-2 -left-2 bg-slate-800 p-2 rounded-full border border-cyan-500 shadow-lg shadow-cyan-500/30 animate-bounce [animation-duration:3s] flex items-center justify-center">
-              <RiReactjsLine className="text-cyan-400 text-3xl" />
-            </div>
-
-
-            <div className="absolute -bottom-2 -right-2 bg-slate-800 p-2 rounded-full border border-white shadow-lg shadow-white/20 animate-bounce [animation-duration:4s] flex items-center justify-center">
-
-              <TbBrandNextjs className="text-white text-3xl" />
-            </div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-secondary blur-xl opacity-30 -z-10"></div>
-          </div>
-
-        </div> */}
-
-        <div className="flex justify-center order-1 lg:order-2">
+        <div className="flex justify-center order-1 lg:order-2 mt-8 md:mt-0">
   <div
-    className="group relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] xl:w-[31rem] xl:h-[31rem] rounded-full p-[6px] bg-gradient-to-tr from-primary via-secondary to-primary shadow-[0_20px_60px_rgba(59,130,246,0.35)] animate-[float_6s_ease-in-out_infinite]"
+    className="group relative w-80 h-80 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] xl:w-[31rem] xl:h-[31rem] rounded-full p-[6px] bg-gradient-to-tr from-primary via-secondary to-primary shadow-[0_20px_60px_rgba(59,130,246,0.35)] animate-[float_6s_ease-in-out_infinite]"
   >
     {/* Image */}
     <div className="relative w-full h-full rounded-full overflow-hidden bg-base-100 p-2">

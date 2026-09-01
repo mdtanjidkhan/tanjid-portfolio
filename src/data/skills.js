@@ -3,7 +3,7 @@ import {
 } from "react-icons/fa";
 import { 
   SiNextdotjs, SiTailwindcss, SiExpress, SiMongodb, 
-  SiFirebase, SiVercel, SiPostman, 
+  SiMongoose, SiVercel, SiPostman, 
 } from "react-icons/si";
 import { TbBrandVscode } from "react-icons/tb";
 
@@ -41,7 +41,7 @@ export const skillCategories = [
     title: "Database Systems",
     skills: [
       { name: "MongoDB", icon: SiMongodb, level: "Advanced", progress: 90, animType: "bounce" },
-      { name: "Firebase", icon: SiFirebase, level: "Intermediate", progress: 80, animType: "subtleFloat" },
+      { name: "Mongoose", icon: SiMongodb, level: "Intermediate", progress: 80, animType: "subtleFloat" },
     ],
   },
 ];
