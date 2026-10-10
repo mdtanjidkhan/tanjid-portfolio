@@ -7,13 +7,10 @@ export const projects = [
     "description": "DevPilot AI helps developers turn software ideas into structured project plans. It generates features, user roles, database schema, REST APIs, folder structure, UI pages, development roadmap, deployment checklist, and README documentation using AI.",
     "coverImage": "https://i.ibb.co.com/xSFNhG3W/Screenshot-2026-07-26-202812.png",
     "gallery": [
-      "/projects/devpilot/1.png",
-      "/projects/devpilot/2.png",
-      "/projects/devpilot/3.png",
-      "/projects/devpilot/4.png"
+      
     ],
     "category": "AI SaaS",
-    "status": "In Progress",
+    "status": "Completed",
     "duration": "2 Months",
     "team": "Solo Project",
     "role": "Full Stack Developer",
@@ -72,9 +69,7 @@ export const projects = [
     "description": "StartupForge enables founders to create startup profiles, publish opportunities, and recruit collaborators. Developers can browse startups, apply for roles, and track application status from a modern dashboard.",
     "coverImage": "https://i.ibb.co.com/wNj1DyhY/Screenshot-2026-07-17-002235.png",
     "gallery": [
-      "/projects/startupforge/1.png",
-      "/projects/startupforge/2.png",
-      "/projects/startupforge/3.png"
+     
     ],
     "category": "Team Collaboration",
     "status": "Completed",
@@ -122,57 +117,65 @@ export const projects = [
     "client": "https://github.com/mdtanjidkhan/startupforge",
     "server": "https://github.com/mdtanjidkhan/startupforge_server"
   },
-  {
-    "id": 3,
-    "slug": "ideavault",
-    "title": "IdeaVault",
-    "shortDescription": "Startup idea sharing platform where users discover, discuss, and validate innovative ideas.",
-    "description": "IdeaVault allows entrepreneurs and creators to publish startup ideas, engage through discussions, bookmark ideas, and discover trending innovations.",
-    "coverImage": "https://i.ibb.co.com/WNKsmy7r/Screenshot-2026-07-26-210515.png",
-    "gallery": [
-      "https://i.ibb.co.com/spXPrKRv/Screenshot-2026-07-04-193946.png",
-      "/projects/ideavault/2.png",
-      "/projects/ideavault/3.png"
-    ],
-    "category": "Community Platform",
-    "status": "Completed",
-    "duration": "3 Weeks",
-    "team": "Solo Project",
-    "role": "Full Stack Developer",
-    "technologies": [
-      "Next.js",
-      "Tailwind CSS",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Better Auth",
-      "JWT"
-    ],
-    "features": [
-      "Idea Publishing",
-      "Trending Ideas",
-      "Comments",
-      "Bookmarks",
-      "Search",
-      "Category Filter",
-      "My Ideas",
-      "My Activity"
-    ],
-    "challenges": [
-      "Comment system",
-      "Search optimization"
-    ],
-    "solutions": [
-      "Reusable CRUD architecture",
-      "MongoDB regex search"
-    ],
-    "futureImprovements": [
-      "Likes",
-      "AI Idea Evaluation",
-      "Real-time Collaboration"
-    ],
-    "live": "https://n-ten-roan.vercel.app/",
-    "client": "https://github.com/mdtanjidkhan/ideavault-client",
-    "server": "https://github.com/mdtanjidkhan/Ideavault-server-pro"
-  }
+ 
+{
+  "id": 3,
+  "slug": "edu-manage",
+  "title": "EduManage",
+  "shortDescription": "A full-stack school management system for managing students, teachers, attendance, results, fees, and academic activities.",
+  "description": "EduManage is a school management platform with role-based dashboards for administrators, teachers, and students. It streamlines academic and administrative workflows through student management, attendance tracking, marks management, class routines, fee management, notices, and online admission applications.",
+  "coverImage": "https://i.ibb.co.com/WWwBm16p/Edu-Manage-School-Dashboard-Showcase.png",
+  "gallery": [
+    
+  ],
+  "category": "Education Management",
+  "status": "Completed",
+  "duration": "Personal Project",
+  "team": "Solo Project",
+  "role": "Full Stack Developer",
+  "technologies": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "DaisyUI",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Better Auth",
+    "JWT"
+  ],
+  "features": [
+    "Role-Based Dashboards",
+    "Authentication & Authorization",
+    "Student & Teacher Management",
+    "Attendance Management",
+    "Marks & Results Management",
+    "Class Routine Management",
+    "Fee Management",
+    "Notices & Announcements",
+    "Online Admission Applications",
+    "Responsive UI"
+  ],
+  "challenges": [
+  "Implementing Role-Based Access Control",
+  "Implementing the Forgot Password and Password Reset Flow",
+  "Integrating Frontend with Backend APIs",
+  "Managing Authentication and Authorization"
+],
+"solutions": [
+  "Implemented Role-Based Dashboards and Access Control",
+  "Developed a Password Reset Flow for Account Recovery",
+  "Separated Frontend and Backend into Independent Repositories",
+  "Integrated REST APIs with MongoDB for Data Management"
+],
+  "futureImprovements": [
+    "Online Payment Integration with bKash",
+    "Advanced Reports and Analytics",
+    "Enhanced Notification System"
+  ],
+  "live": "https://edu-manage-bay.vercel.app/",
+  "client": "https://github.com/mdtanjidkhan/edu-manage",
+  "server": "https://github.com/mdtanjidkhan/edu-manage-server"
+}
+
 ]

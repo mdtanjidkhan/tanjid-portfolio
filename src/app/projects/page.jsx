@@ -1,25 +1,12 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 
 // UI Icons
-const ArrowLeftIcon = () => (
-  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-  </svg>
-);
-
-const ArrowRightIcon = () => (
-  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-  </svg>
-);
-
 const EyeIcon = () => (
   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -40,56 +27,6 @@ const GithubIcon = () => (
 );
 
 export default function Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState("right");
-  const [isMobile, setIsMobile] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(3);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-        if (window.innerWidth < 1024) {
-          setVisibleCount(2);
-        } else {
-          setVisibleCount(3);
-        }
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const maxIndex = Math.max(0, projects.length - visibleCount);
-
-  useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [visibleCount, maxIndex, currentIndex]);
-
-  const handleNext = () => {
-    if (currentIndex < maxIndex) {
-      setDirection("right");
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setDirection("left");
-      setCurrentIndex((prev) => prev - 1);
-    }
-  };
-
-  const visibleProjects = isMobile
-    ? projects
-    : projects.slice(currentIndex, currentIndex + visibleCount);
-
   const textLeftToRightProps = {
     initial: { opacity: 0, x: -60 },
     whileInView: { opacity: 1, x: 0 },
@@ -99,6 +36,7 @@ export default function Projects() {
       ease: [0.22, 1, 0.36, 1],
     },
   };
+
   const cardFloatUpProps = {
     initial: { opacity: 0, y: 60, scale: 0.96 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
@@ -109,34 +47,6 @@ export default function Projects() {
     },
   };
 
-  const slideVariants = {
-    enter: (dir) => ({
-      x: dir === "right" ? 50 : -50,
-      opacity: 0,
-      scale: 0.98,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        x: { type: "spring", stiffness: 220, damping: 26 },
-        opacity: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
-        scale: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
-      },
-    },
-    exit: (dir) => ({
-      x: dir === "right" ? -50 : 50,
-      opacity: 0,
-      scale: 0.98,
-      transition: {
-        x: { type: "spring", stiffness: 220, damping: 26 },
-        opacity: { duration: 0.2 },
-        scale: { duration: 0.2 },
-      },
-    }),
-  };
-
   const buttonTapProps = {
     whileHover: { scale: 1.03, y: -1 },
     whileTap: { scale: 0.97, y: 0 },
@@ -144,332 +54,143 @@ export default function Projects() {
   };
 
   return (
-    <section className="container mx-auto px-4 md:px-8 py-20 relative">
-      {/* Header Section: Left to Right Animation */}
-      <div className="mb-14 text-center overflow-hidden">
+    <section className="container mx-auto px-4 md:px-8 py-16 relative">
+      {/* Header Section */}
+      <div className="mb-10 text-center overflow-hidden">
         <motion.h2 
           {...textLeftToRightProps} 
-          className="text-3xl md:text-5xl font-extrabold tracking-tight"
+          className="text-3xl md:text-4xl font-extrabold tracking-tight"
         >
           My Recent <span className="text-primary">Projects</span>
         </motion.h2>
 
         <motion.p 
           {...textLeftToRightProps}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }} // হালকা Delay দিয়ে ডানে স্লাইড হবে
-          className="text-base-content/70 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-normal"
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }} 
+          className="text-base-content/70 text-sm max-w-xl mx-auto mt-3 leading-relaxed font-normal"
         >
           A collection of full-stack web applications built with modern
-          technologies, focusing on performance, user experience, and scalable
-          architecture.
+          technologies, focusing on performance and user experience.
         </motion.p>
 
         <motion.div 
           {...textLeftToRightProps}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="w-20 h-1.5 bg-gradient-to-r from-primary/80 to-primary mx-auto mt-4 rounded-full shadow-sm" 
+          className="w-16 h-1 bg-gradient-to-r from-primary/80 to-primary mx-auto mt-3 rounded-full shadow-sm" 
         />
       </div>
 
-      {/* Projects Container */}
-      <div className="max-w-7xl mx-auto min-h-[540px] flex flex-col justify-between">
-        {/* Mobile View */}
-        {isMobile ? (
-          <div className="grid grid-cols-1 gap-8">
-            {visibleProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                {...cardFloatUpProps}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-md transition-colors duration-300 hover:border-primary/40"
-              >
-                {/* Image Area */}
-                <div className="relative h-56 w-full overflow-hidden bg-base-300">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={project.coverImage}
-                      alt={project.title}
-                      fill
-                      sizes="100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60" />
-
-                  <span className="absolute top-4 right-4 badge badge-secondary font-semibold shadow-md px-3 py-1 text-xs">
-                    {project.status}
-                  </span>
-                </div>
-
-                {/* Content Area with Left to Right Animation for Titles */}
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <span className="badge badge-outline badge-primary text-xs font-medium mb-3 px-2.5 py-1">
-                      {project.category}
-                    </span>
-
-                    <motion.h3 
-                      {...textLeftToRightProps}
-                      className="text-xl font-bold mb-2"
-                    >
-                      {project.title}
-                    </motion.h3>
-
-                    <p className="text-base-content/70 text-sm leading-relaxed line-clamp-3 mb-5">
-                      {project.shortDescription}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 mb-6">
-                      {project.technologies.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="badge badge-neutral text-[11px] py-2 px-2.5 font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex items-center gap-2 pt-2 border-t border-base-content/5">
-                    <Link href={`/projects/${project.slug}`} className="flex-1">
-                      <motion.button 
-                        {...buttonTapProps}
-                        className="btn btn-primary btn-sm rounded-xl w-full text-xs font-semibold shadow-sm flex items-center justify-center gap-1.5"
-                      >
-                        <EyeIcon /> Details
-                      </motion.button>
-                    </Link>
-
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1"
-                    >
-                      <motion.button 
-                        {...buttonTapProps}
-                        className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold flex items-center justify-center gap-1.5"
-                      >
-                        <ExternalLinkIcon /> Live
-                      </motion.button>
-                    </a>
-
-                    <a
-                      href={project.client}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1"
-                    >
-                      <motion.button 
-                        {...buttonTapProps}
-                        className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold flex items-center justify-center gap-1.5"
-                      >
-                        <GithubIcon /> Code
-                      </motion.button>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          /* Desktop/Tablet Grid View */
-          <motion.div {...cardFloatUpProps}>
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={currentIndex}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="grid grid-cols-2 lg:grid-cols-3 gap-8"
-              >
-                {visibleProjects.map((project) => (
-                  <motion.div
-                    key={project.id}
-                    whileHover={{ 
-                      y: -8, 
-                      transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } 
-                    }}
-                    className="group relative flex flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
-                  >
-                    {/* Image Container */}
-                    <div className="relative h-56 w-full overflow-hidden bg-base-300">
-                      <motion.div
-                        className="relative w-full h-full"
-                        whileHover={{ scale: 1.06 }}
-                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      >
-                        <Image
-                          src={project.coverImage}
-                          alt={project.title}
-                          fill
-                          sizes="(max-width: 1024px) 50vw, 33vw"
-                          className="object-cover"
-                        />
-                      </motion.div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none" />
-
-                      <span className="absolute top-4 right-4 badge badge-secondary font-semibold shadow-md px-3 py-1 text-xs">
-                        {project.status}
-                      </span>
-                    </div>
-
-                    {/* Content Area */}
-                    <div className="p-6 flex flex-col flex-grow justify-between">
-                      <div>
-                        <span className="badge badge-outline badge-primary text-xs font-medium mb-3 px-2.5 py-1">
-                          {project.category}
-                        </span>
-
-                        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-1">
-                          {project.title}
-                        </h3>
-
-                        <p className="text-base-content/70 text-sm leading-relaxed line-clamp-3 mb-5">
-                          {project.shortDescription}
-                        </p>
-
-                        <div className="flex flex-wrap gap-1.5 mb-6">
-                          {project.technologies.slice(0, 4).map((tech) => (
-                            <motion.span
-                              key={tech}
-                              whileHover={{ scale: 1.05 }}
-                              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                              className="badge badge-neutral text-[11px] py-2 px-2.5 font-medium cursor-default"
-                            >
-                              {tech}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="flex items-center gap-2 pt-2 border-t border-base-content/5">
-                        <Link
-                          href={`/projects/${project.slug}`}
-                          className="flex-1"
-                        >
-                          <motion.button 
-                            {...buttonTapProps}
-                            className="btn btn-primary btn-sm rounded-xl w-full text-xs font-semibold shadow-sm hover:shadow-primary/20 flex items-center justify-center gap-1.5"
-                          >
-                            <EyeIcon /> Details
-                          </motion.button>
-                        </Link>
-
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1"
-                        >
-                          <motion.button 
-                            {...buttonTapProps}
-                            className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold hover:bg-primary hover:border-primary hover:text-primary-content flex items-center justify-center gap-1.5"
-                          >
-                            <ExternalLinkIcon /> Live
-                          </motion.button>
-                        </a>
-
-                        <a
-                          href={project.client}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1"
-                        >
-                          <motion.button 
-                            {...buttonTapProps}
-                            className="btn btn-outline btn-sm rounded-xl w-full text-xs font-semibold hover:bg-base-content hover:text-base-100 flex items-center justify-center gap-1.5"
-                          >
-                            <GithubIcon /> Code
-                          </motion.button>
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-        )}
-
-        {/* Navigation Controls with Left to Right Animation */}
-        {!isMobile && (
-          <motion.div
-            {...textLeftToRightProps}
-            className="mt-12 flex items-center justify-between gap-6 px-2 border-t border-base-content/10 pt-6"
-          >
-            {/* Page Counter */}
-            <div className="text-sm font-mono tracking-wider text-base-content/70">
-              <span className="text-primary font-bold text-lg">
-                {String(currentIndex + 1).padStart(2, "0")}
-              </span>{" "}
-              / {String(projects.length).padStart(2, "0")}
-            </div>
-
-            {/* Dynamic Active Indicator Dots */}
-            <div className="flex items-center gap-1.5 overflow-x-auto max-w-[200px] sm:max-w-none py-1">
-              {Array.from({ length: maxIndex + 1 }).map((_, index) => {
-                const isActive = index === currentIndex;
-                return (
-                  <motion.button
-                    key={index}
-                    onClick={() => {
-                      setDirection(index > currentIndex ? "right" : "left");
-                      setCurrentIndex(index);
-                    }}
-                    layout
-                    initial={false}
-                    animate={{
-                      width: isActive ? 32 : 8,
-                      backgroundColor: isActive 
-                        ? "hsl(var(--p))" 
-                        : "hsl(var(--bc) / 0.2)"
-                    }}
-                    whileHover={{ scale: 1.15 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 350,
-                      damping: 25,
-                    }}
-                    className="h-2 rounded-full cursor-pointer focus:outline-none"
-                    aria-label={`Go to slide ${index + 1}`}
+      {/* Projects Container: Compact Static Grid for 3 Projects */}
+      <div className="max-w-6xl mx-auto">
+        <motion.div {...cardFloatUpProps} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.slice(0, 3).map((project) => (
+            <motion.div
+              key={project.id}
+              whileHover={{ 
+                y: -6, 
+                transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } 
+              }}
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-base-content/10 bg-base-200/30 backdrop-blur-md shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
+            >
+              {/* Image Container - Height reduced to h-44 */}
+              <div className="relative h-44 w-full overflow-hidden bg-base-300">
+                <motion.div
+                  className="relative w-full h-full"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Image
+                    src={project.coverImage}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
                   />
-                );
-              })}
-            </div>
+                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-base-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none" />
 
-            {/* Arrows */}
-            <div className="flex items-center gap-3">
-              <motion.button
-                {...buttonTapProps}
-                onClick={handlePrev}
-                disabled={currentIndex === 0}
-                aria-label="Previous Project"
-                className="btn btn-circle btn-outline btn-sm hover:btn-primary disabled:opacity-30"
-              >
-                <ArrowLeftIcon />
-              </motion.button>
+                <span className="absolute top-3 right-3 badge badge-secondary font-semibold shadow-sm px-2.5 py-0.5 text-[10px]">
+                  {project.status}
+                </span>
+              </div>
 
-              <motion.button
-                {...buttonTapProps}
-                onClick={handleNext}
-                disabled={currentIndex >= maxIndex}
-                aria-label="Next Project"
-                className="btn btn-circle btn-outline btn-sm hover:btn-primary disabled:opacity-30"
-              >
-                <ArrowRightIcon />
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
+              {/* Content Area */}
+              <div className="p-4 sm:p-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <span className="badge badge-outline badge-primary text-[11px] font-medium mb-2 px-2 py-0.5">
+                    {project.category}
+                  </span>
+
+                  <h3 className="text-lg font-bold mb-1.5 group-hover:text-primary transition-colors duration-200 line-clamp-1">
+                    {project.title}
+                  </h3>
+
+                  {/* Description line-clamp reduced to 2 lines */}
+                  <p className="text-base-content/70 text-xs sm:text-sm leading-relaxed line-clamp-2 mb-4">
+                    {project.shortDescription}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <motion.span
+                        key={tech}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                        className="badge badge-neutral text-[10px] py-1.5 px-2 font-medium cursor-default"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-1.5 pt-2 border-t border-base-content/5">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="flex-1"
+                  >
+                    <motion.button 
+                      {...buttonTapProps}
+                      className="btn btn-primary btn-xs sm:btn-sm rounded-lg w-full text-[11px] sm:text-xs font-semibold shadow-sm flex items-center justify-center gap-1"
+                    >
+                      <EyeIcon /> Details
+                    </motion.button>
+                  </Link>
+
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <motion.button 
+                      {...buttonTapProps}
+                      className="btn btn-outline btn-xs sm:btn-sm rounded-lg w-full text-[11px] sm:text-xs font-semibold flex items-center justify-center gap-1"
+                    >
+                      <ExternalLinkIcon /> Live
+                    </motion.button>
+                  </a>
+
+                  <a
+                    href={project.client}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <motion.button 
+                      {...buttonTapProps}
+                      className="btn btn-outline btn-xs sm:btn-sm rounded-lg w-full text-[11px] sm:text-xs font-semibold flex items-center justify-center gap-1"
+                    >
+                      <GithubIcon /> Code
+                    </motion.button>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
 }
-
-

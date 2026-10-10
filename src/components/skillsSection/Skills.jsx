@@ -178,5 +178,140 @@ export default function Skills() {
   );
 }
 
+// import React from "react";
+// import {
+//   FaHtml5,
+//   FaCss3Alt,
+//   FaJs,
+//   FaReact,
+//   FaNodeJs,
+//   FaGitAlt,
+//   FaGithub,
+//   FaKey,
+//   FaLock,
+//   FaGlobe,
+// } from "react-icons/fa";
+// import {
+//   SiNextdotjs,
+//   SiTailwindcss,
+//   SiDaisyui,
+//   SiExpress,
+//   SiMongodb,
+//   SiMongoose,
+//   SiPostman,
+//   SiStripe,
+//   SiVercel,
+//   SiNetlify,
+//   SiTypescript,
+// } from "react-icons/si";
+
+// const skillCategories = [
+//   {
+//     title: "Frontend",
+//     skills: [
+//       { name: "HTML5", icon: FaHtml5 },
+//       { name: "CSS3", icon: FaCss3Alt },
+//       { name: "JavaScript", icon: FaJs },
+//       { name: "React", icon: FaReact },
+//       { name: "Next.js", icon: SiNextdotjs },
+//       { name: "Tailwind CSS", icon: SiTailwindcss },
+//       { name: "DaisyUI", icon: SiDaisyui },
+//     ],
+//   },
+//   {
+//     title: "Backend & Database",
+//     skills: [
+//       { name: "Node.js", icon: FaNodeJs },
+//       { name: "Express.js", icon: SiExpress },
+//       { name: "REST API", icon: FaGlobe },
+//       { name: "JWT", icon: FaKey },
+//       { name: "Better Auth", icon: FaLock },
+//       { name: "MongoDB", icon: SiMongodb },
+//       { name: "Mongoose", icon: SiMongoose },
+//     ],
+//   },
+//   {
+//     title: "Tools & Services",
+//     skills: [
+//       { name: "Git", icon: FaGitAlt },
+//       { name: "GitHub", icon: FaGithub },
+//       { name: "Postman", icon: SiPostman },
+//       { name: "Stripe", icon: SiStripe },
+//       { name: "Vercel", icon: SiVercel },
+//       { name: "Netlify", icon: SiNetlify },
+//     ],
+//   },
+// ];
+
+// export default function Skills() {
+//   return (
+//     <section id="skills" className="py-8 md:py-12">
+//       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+//         {/* Header - Fixed light text issue */}
+//         <div className="text-center max-w-2xl mx-auto mb-6 md:mb-8">
+//           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
+//             Skills
+//           </h2>
+//           <p className="mt-1.5 text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
+//             Technologies and tools I use to build modern web applications.
+//           </p>
+//         </div>
+
+//         {/* Grid Container */}
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+//           {skillCategories.map((category) => (
+//             <div
+//               key={category.title}
+//               className="p-4 rounded-xl bg-neutral-100/60 dark:bg-neutral-900/50 border border-neutral-200/80 dark:border-neutral-800"
+//             >
+//               <h3 className="text-sm font-semibold mb-3 text-neutral-800 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-800 pb-2">
+//                 {category.title}
+//               </h3>
+
+//               {/* Items Grid */}
+//               <div className="grid grid-cols-2 gap-2">
+//                 {category.skills.map((skill) => {
+//                   const Icon = skill.icon;
+//                   return (
+//                     <div
+//                       key={skill.name}
+//                       tabIndex={0}
+//                       className="group flex items-center gap-2 p-2 rounded-lg bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700/60 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+//                     >
+//                       <Icon
+//                         aria-hidden="true"
+//                         className="w-4 h-4 text-neutral-600 dark:text-neutral-400 group-hover:scale-110 group-hover:text-neutral-900 dark:group-hover:text-white transition-transform duration-200 shrink-0"
+//                       />
+//                       <span className="text-xs font-medium truncate">
+//                         {skill.name}
+//                       </span>
+//                     </div>
+//                   );
+//                 })}
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* Learning Badge */}
+//         <div className="mt-6 md:mt-8 text-center">
+//           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700">
+//             <span className="relative flex h-2 w-2">
+//               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+//               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+//             </span>
+//             <span>Currently learning</span>
+//             <span className="text-neutral-300 dark:text-neutral-600">•</span>
+//             <span className="inline-flex items-center gap-1 text-neutral-900 dark:text-white font-semibold">
+//               <SiTypescript aria-hidden="true" className="w-3.5 h-3.5 text-[#3178C6]" />
+//               TypeScript
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 
 
