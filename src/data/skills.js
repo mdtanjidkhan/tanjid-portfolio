@@ -1,48 +1,66 @@
-import { 
-  FaReact, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaHtml5
-} from "react-icons/fa";
-import { 
-  SiNextdotjs, SiTailwindcss, SiExpress, SiMongodb, 
-  SiMongoose, SiVercel, SiPostman, 
-} from "react-icons/si";
-import { TbBrandVscode } from "react-icons/tb";
 
-// src/data/skills.js
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaGithub,
+  FaKey,
+  FaLock,
+  FaGlobe,
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiPostman,
+  SiVercel,
+  SiNetlify,
+} from "react-icons/si";
+
+import { TbBrandVscode } from "react-icons/tb";
 
 export const skillCategories = [
   {
     title: "Frontend Development",
+    description: "Creating modern user interfaces",
     skills: [
-      { name: "React", icon: FaReact, level: "Advanced", progress: 95, animType: "spin" },
-      { name: "Next.js", icon: SiNextdotjs, level: "Advanced", progress: 90, animType: "nextRotate" },
-      { name: "JavaScript", icon: FaJs, level: "Advanced", progress: 95, animType: "pulse" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, level: "Advanced", progress: 95, animType: "float" },
-      { name: "HTML5 & CSS3", icon: FaHtml5, level: "Advanced", progress: 98, animType: "subtleFloat" },
+      { name: "HTML5", icon: FaHtml5 },
+      { name: "CSS3", icon: FaCss3Alt },
+      { name: "JavaScript", icon: FaJs },
+      { name: "React", icon: FaReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+  },
+  {
+    title: "Backend & Database",
+    description: "Building APIs and managing data",
+    skills: [
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "REST API", icon: FaGlobe },
+      { name: "JWT", icon: FaKey },
+      { name: "Better Auth", icon: FaLock },
     ],
   },
   {
     title: "Tools & Deployment",
+    description: "Tools for development and delivery",
     skills: [
-      { name: "Git", icon: FaGitAlt, level: "Advanced", progress: 90, animType: "subtleFloat" },
-      { name: "GitHub", icon: FaGithub, level: "Advanced", progress: 92, animType: "githubRotate" },
-      { name: "VS Code", icon: TbBrandVscode, level: "Advanced", progress: 95, animType: "subtleFloat" },
-      { name: "Postman", icon: SiPostman, level: "Intermediate", progress: 85, animType: "subtleFloat" },
-      { name: "Vercel", icon: SiVercel, level: "Advanced", progress: 90, animType: "subtleFloat" },
-    ],
-  },
-  {
-    title: "Backend Development",
-    skills: [
-      { name: "Node.js", icon: FaNodeJs, level: "Advanced", progress: 90, animType: "float" },
-      { name: "Express.js", icon: SiExpress, level: "Advanced", progress: 85, animType: "subtleFloat" },
-    ],
-  },
-  {
-    title: "Database Systems",
-    skills: [
-      { name: "MongoDB", icon: SiMongodb, level: "Advanced", progress: 90, animType: "bounce" },
-      { name: "Mongoose", icon: SiMongodb, level: "Intermediate", progress: 80, animType: "subtleFloat" },
+      { name: "Git", icon: FaGitAlt },
+      { name: "GitHub", icon: FaGithub },
+      { name: "VS Code", icon: TbBrandVscode },
+      { name: "Postman", icon: SiPostman },
+      { name: "Vercel", icon: SiVercel },
+      { name: "Netlify", icon: SiNetlify },
     ],
   },
 ];
+
 
